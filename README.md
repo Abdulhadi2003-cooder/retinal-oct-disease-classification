@@ -2,25 +2,25 @@
 Deep learning models for retinal disease classification using OCT images
 # Retinal OCT Disease Classification using Deep Learning
 
-This project presents an end-to-end deep learning pipeline for automated
+This project implements an end-to-end deep learning pipeline for automated
 classification of retinal diseases using Optical Coherence Tomography (OCT)
-images. The goal is to assist in early diagnosis of retinal conditions by
-leveraging convolutional neural networks and modern AI techniques.
+images. The system aims to support early diagnosis by leveraging modern
+computer vision and deep learning techniques.
 
 ## Dataset
 The project uses the publicly available OCT2017 (Kermany) dataset, which
-contains labeled retinal OCT images across multiple disease categories.
+contains labeled retinal OCT images across multiple retinal disease classes.
 
-Dataset link:
+Dataset:
 https://www.kaggle.com/datasets/paultimothymooney/kermany2018
 
 ## Methods and Models
-The following approaches were implemented and compared:
+The following approaches were implemented and evaluated:
 
 - Transfer learning using VGG16 pretrained on ImageNet
-- A custom-designed CNN architecture
+- Custom convolutional neural network (CNN)
 - Patch-based Multiple Instance Learning (MIL) with Top-K pooling
-- Contrast enhancement using CLAHE
+- CLAHE-based contrast enhancement
 - Duplicate image removal using MD5 hashing
 - Hyperparameter optimization using Optuna
 
@@ -31,30 +31,28 @@ The following approaches were implemented and compared:
   interpretability
 
 ## Graphical User Interface (GUI)
-An interactive GUI was developed using Gradio to allow real-time testing of
-new OCT images. The GUI loads pretrained models and visualizes predictions.
+A Gradio-based graphical user interface was developed to allow real-time
+testing of new OCT images using pretrained models.
 
-## How to Run the Project
+## How to Run
 1. Download the dataset from Kaggle:
    https://www.kaggle.com/datasets/paultimothymooney/kermany2018
 
-2. Edit the dataset path in `Remove_duplicates.ipynb` (first cell).
+2. Update the dataset path in `remove_duplicate_images.ipynb`.
 
-3. Run the notebook once to identify and move duplicate images into a
-   separate folder.
+3. Run the notebook once to identify and move duplicate images.
 
-4. Update the path of the cleaned dataset in the remaining notebooks
-   (first or second cells).
+4. Update dataset paths in the remaining notebooks.
 
-5. Use the following notebooks to train and evaluate models:
-   - `own_cnn_model.ipynb`
-   - `patch_model.ipynb`
-   - `transfer_model.ipynb`
+5. Train or evaluate models using:
+   - `cnn_model.ipynb`
+   - `cnn_model_optuna.ipynb`
+   - `vgg16_transfer_learning.ipynb`
+   - `patch_mil_model.ipynb`
 
-6. Run `gui.ipynb` to launch the GUI for testing new images.
-   (Pretrained `.keras` model weights are used for inference.)
+6. Launch the GUI using `gradio_gui.ipynb`.
 
-## Technologies Used
-Python, TensorFlow/Keras, Convolutional Neural Networks (CNNs),
-Transfer Learning, Multiple Instance Learning (MIL),
-Optuna, Gradio
+## Technologies
+Python, TensorFlow/Keras, Deep Learning, CNNs, Transfer Learning,
+Multiple Instance Learning (MIL), Optuna, Gradio
+
